@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressedStart(_ sender: Any) {
-        if (countDownTimer == nil) {
+        if (countDownTimer == nil) || !(countDownTimer!.isValid) { // only start new timer if its currently nil or invalid to prevent multiple timers changing same label each second
             countDownTimer = Timer.scheduledTimer(
                 timeInterval: 1,
                 target: self,
