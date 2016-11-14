@@ -47,7 +47,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pressedResetTimer(_ sender: Any) {
-        countDownTimer?.invalidate()
         resetSeconds()
     }
     
@@ -60,8 +59,8 @@ class ViewController: UIViewController {
             secondsRemaining -= 1
         } else {
             secondsRemaining = 0
+            countDownTimer?.invalidate()
         }
-        
         secondsLabel.text = String(secondsRemaining)
     }
     
@@ -75,11 +74,13 @@ class ViewController: UIViewController {
             secondsRemaining -= 10
         } else {
             secondsRemaining = 0
+            countDownTimer?.invalidate()
         }
         secondsLabel.text = String(secondsRemaining)
     }
     
     func resetSeconds () {
+        countDownTimer?.invalidate()
         secondsRemaining = 210
         secondsLabel.text = String(secondsRemaining)
     }
